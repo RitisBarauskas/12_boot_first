@@ -5,8 +5,11 @@ class Human:
         self.name = name
         self.age = age
 
-    def say_hello(self):
-        print(f"Hello, my name is {self.name} and I am {self.age} years old.")
+    def say_hello(self, num=1):
+        print(f"{num}. Hello, my name is {self.name} and I am {self.age} years old.")
+
+    def __str__(self):
+        return f"Human(name={self.name}, age={self.age})"
 
 
 def main():
@@ -16,8 +19,13 @@ def main():
 
     students = [john, bill, maxim]
 
-    for student in students:
-        student.say_hello()
+    print('Hello from all students:')
+    for num, student in enumerate(students, 1):
+        student.say_hello(num)
+
+    print('Students list:')
+    for num, student in enumerate(students, 1):
+        print(num, student)
 
 
 if __name__ == "__main__":
